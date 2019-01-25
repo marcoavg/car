@@ -1,5 +1,5 @@
 var express = require('express')
-var Menu = require('../models/Menu')
+var Menu = require('../models/menu')
 var app = express()
 
 app.get('/menu', (req, res) => {
