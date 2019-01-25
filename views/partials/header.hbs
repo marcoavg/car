@@ -13,7 +13,7 @@
      <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/public/images/core/favicon.ico">
+    <link rel="shortcut icon" href="/images/core/car.svg">
 
 
     <title>Car App Web</title>
@@ -89,43 +89,31 @@
                 </a>
                 <span class="header__close"><span class="element-focusable">Cerrar Menu</span></span>
                 <nav class="main-nav">
-                    <nav role="navigation" aria-labelledby="block-mainnavigationplusplus-menu" id="block-mainnavigationplusplus">
+                    <nav role="navigation" aria-labelledby="block-mainnavigationplusplus-menu"  id="block-mainnavigationplusplus">
                         <h2 class="visually-hidden" id="block-mainnavigationplusplus-menu">Menu principal</h2>
-                        <a href="/about" class="main-nav__item">
-                            <span class="main-nav__label">Informacion</span>
-                            <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
-                                        Informacion del car
-                            </span>
-                        </a>
+                        <script type="text/javascript">
+                            let url="/menu";
+                            fetch(url).then(response => response.json())
+                            .then( (result) => {
+                                let div=document.getElementById('block-mainnavigationplusplus');
+                                let divFooter=document.getElementById('footer-menu');
+                                for(var k in result.menu) {
+                                    div.innerHTML+=`<a href="${result.menu[k].url}" class="main-nav__item">
+                                            <span class="main-nav__label">${result.menu[k].title}</span>
+                                                <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
+                                                            ${result.menu[k].description}
+                                                </span>
+                                            </a>`;
 
-                        <a href="/work" class="main-nav__item">
-                            <span class="main-nav__label">Trabajamos con</span>
-                            <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
-                                        Trabajamos con los clientes
-                            </span>
-                        </a>
-
-                        <a href="/services" class="main-nav__item">
-                            <span class="main-nav__label">Servicios</span>
-                            <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
-                                        Servicios informativos
-                            </span>
-                        </a>
-
-                        <a href="/ideas" class="main-nav__item">
-                            <span class="main-nav__label">Ideas</span>
-                            <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
-                                       Ideas para ti
-                            </span>
-                        </a>
-
-                        <a href="/contact" class="main-nav__item">
-                            <span class="main-nav__label">Contacto</span>
-                            <span  class="menu_link_content menu-link-contentmain-navigation-plus-plus view-mode-default main-nav__text menu-dropdown menu-dropdown-0 menu-type-default">
-                                       Contacto 
-                            </span>
-                        </a>
-
+                                    divFooter.innerHTML+=`<li>
+                                                <a href="${result.menu[k].url}" title="${result.menu[k].description}">${result.menu[k].title}</a>
+                                            </li>`;
+                                }                                                               
+                                
+                                
+                            })
+                            .catch(error => console.log('error:', error));
+                        </script>
                     </nav>
 
                 </nav>

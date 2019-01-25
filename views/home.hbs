@@ -47,134 +47,51 @@
                         </div> 
                         
                         <div class="grid-wrap container--extend">
-                            <div class="grid" style="position: relative; height: 3885.47px;">
+                            <div class="grid" style="position: relative; height: 3885.47px;" id="items-home-grid">
                                 <div class="grid-sizer"></div> 
                                 <div class="gutter-sizer"></div> 
-
-                                <div class="grid-item grid-item--default" style="position: absolute; left: 0%; top: 0px;">
-                                    <a role="img" aria-label="Introducing Federated Search" href="/blog/introducing-federated-search" 
-                                        title="Introducing Federated Search" class="grid-link" 
-                                        style="background-image: url(&quot;images/core/pattern--light.svg&quot;);">
-                                        <div class="grid-link__content">
-                                            <span class="grid-link__label">Blog Post</span> 
-                                            <h2 class="grid-link__title">Introducing Federated Search</h2> 
-                                            <p class="grid-link__teaser" style="display: none;"></p>
-                                            </div> <!----> 
-                                        <div class="grid-link__meta">
-                                            <span class="grid-link__meta-thumb">
-                                                <img src="images/yo.jpg?h=5a3b9e47&amp;itok=7U35MgQB" 
-                                                alt="Ken Rickard and Avi Schwab">
-                                                </span> 
-                                            <span class="grid-link__meta-author">By Ken Rickard and Avi Schwab</span>
-                                            </div> 
-                                            <div class="grid-link__view">
-                                                <span class="grid-link__view-title">Introducing Federated Search</span> 
-                                                <span class="grid-link__view-link">Read Blog Post</span>
-                                    </div>
-                                    </a>
-                                </div>
-
-                                <div class="grid-item grid-item--default grid-item--dark" 
-                                    style="position: absolute; left: 51.4421%; top: 0px;">
-                                        <a role="img" 
-                                            aria-label="Federated Search: The Demo" 
-                                            href="/blog/federated-search-demo" 
-                                            title="Federated Search: The Demo" 
-                                            class="grid-link" 
-                                            style="background-image: url(&quot;images/core/pattern--dark.svg&quot;);">
-                                                <div class="grid-link__content">
-                                                    <span class="grid-link__label">Blog Post</span> 
-                                                    <h2 class="grid-link__title">Federated Search: The Demo</h2> 
-                                                    <p class="grid-link__teaser" style="display: none;"></p>
-                                                </div> <!----> 
-                                                <div class="grid-link__meta">
-                                                    <span class="grid-link__meta-thumb">
-                                                        <img src="images/yo.jpg?h=5a3b9e47&amp;itok=SbigxJin" 
-                                                            alt="Ken Rickard and Avi Schwab">
-                                                    </span> 
-                                                    <span class="grid-link__meta-author">By Ken Rickard and Avi Schwab</span>
-                                                </div> 
-                                            
-                                                <div class="grid-link__view">
-                                                    <span class="grid-link__view-title">Federated Search: The Demo</span> 
-                                                    <span class="grid-link__view-link">Read Blog Post</span>
+                                <script type="text/javascript">
+                                    let urlI="/items";
+                                    fetch(urlI).then(response => response.json())
+                                    .then( (result) => {
+                                        let divItem=document.getElementById('items-home-grid');
+                                        for(var k in result.items) {
+                                            var item = result.items[k];
+                                            console.log('item:', item)
+                                            divItem.innerHTML+= `<div class="${item.class}" style="${item.style}">
+                                                <a role="img" aria-label="${item.description} " href="${item.urlItem}" 
+                                                    title="${item.description}" class="grid-link" 
+                                                    style="background-image: url(&quot;${item.background}&quot;);">
+                                                    <div class="grid-link__content">
+                                                        <span class="grid-link__label">${item.label}</span> 
+                                                        <h2 class="grid-link__title">${item.title}</h2> 
+                                                        <p class="grid-link__teaser" style="display: none;"></p>
+                                                        </div> <!----> 
+                                                    <div class="grid-link__meta">
+                                                        <span class="grid-link__meta-thumb">
+                                                            <img src="${item.authorImg}?h=5a3b9e47&amp;itok=7U35MgQB" 
+                                                            alt="${item.author}">
+                                                            </span> 
+                                                        <span class="grid-link__meta-author">${item.author}</span>
+                                                        </div> 
+                                                        <div class="grid-link__view">
+                                                            <span class="grid-link__view-title">${item.viewTitle} </span> 
+                                                            <span class="grid-link__view-link">${item.viewLink}</span>
                                                 </div>
-                                            </a>
-                                </div>
+                                                </a>
+                                            </div>`;
+                                        }                                                               
+                                        
+                                        
+                                    })
+                                    .catch(error => console.log('error:', error));
 
-                                <div class="grid-item grid-item--lg grid-item--default" 
-                                    style="position: absolute; left: 0%; top: 431px;">
-                                        <a role="img" 
-                                            aria-label="Workbench Tabs in Drupal 8" 
-                                            href="/blog/workbench-tabs-drupal-8" 
-                                            title="Workbench Tabs in Drupal 8" 
-                                            class="grid-link" 
-                                            style="background-image: url(&quot;images/core/pattern--light.svg&quot;);">
-                                            <div class="grid-link__content">
-                                                <span class="grid-link__label">Blog Post</span> 
-                                                <h2 class="grid-link__title">Workbench Tabs in Drupal 8</h2> 
-                                                <p class="grid-link__teaser" style="display: none;"></p>
-                                            </div> <!----> 
-                                            <div class="grid-link__meta">
-                                                <span class="grid-link__meta-thumb">
-                                                    <img src="images/yo.jpg?h=5a3b9e47&amp;itok=TaF4A4bV" 
-                                                        alt="Bec White">
-                                                </span> 
-                                                <span class="grid-link__meta-author">By Bec White</span>
-                                            </div> 
-                                            <div class="grid-link__view">
-                                                <span class="grid-link__view-title">Workbench Tabs in Drupal 8</span> 
-                                                <span class="grid-link__view-link">Read Blog Post</span>
-                                            </div>
-                                        </a>
-                                </div>
-                                                                        
-                                <div class="grid-item grid-item--cs grid-item--dark grid-item--dark" 
-                                    style="position: absolute; left: 51.4421%; top: 863px;">
-                                        <a role="img" 
-                                        aria-label="Starwood Retail Partners" 
-                                        href="/experience/starwood-retail-partners" 
-                                        title="Starwood Retail Partners" 
-                                        class="grid-link" 
-                                        style="background-image: url(&quot;images/Starwood-cover--tablet-at-desk.jpg&quot;);">
-                                            <div class="grid-link__content">
-                                                <span class="grid-link__label">Case Study</span> 
-                                                <h2 class="grid-link__title">Starwood Retail Partners</h2> 
-                                                <p class="grid-link__teaser" style="display: none;"></p>
-                                            </div> <!----> <!----> 
-                                            <div class="grid-link__view">
-                                                <span class="grid-link__view-title">Starwood Retail Partners</span> 
-                                                <span class="grid-link__view-link">View Case Study</span>
-                                            </div>
-                                        </a>
-                                </div>                            
-                            
-                                <div class="grid-item grid-item--lg grid-item--default grid-item--dark" 
-                                    style="position: absolute; left: 0%; top: 1295px;">
-                                        <a role="img" 
-                                            aria-label="Data-Driven Website Personas: A Cost-Effective Approach" 
-                                            href="/blog/data-driven-website-personas-cost-effective-approach" 
-                                            title="Data-Driven Website Personas: A Cost-Effective Approach" 
-                                            class="grid-link" 
-                                            style="background-image: url(&quot;images/core/pattern--dark.svg&quot;);">
-                                                <div class="grid-link__content">
-                                                    <span class="grid-link__label">Blog Post</span> 
-                                                    <h2 class="grid-link__title">Data-Driven Website Personas: A Cost-Effective Approach</h2> 
-                                                    <p class="grid-link__teaser" style="display: none;"></p>
-                                                </div> <!----> 
-                                                <div class="grid-link__meta">
-                                                    <span class="grid-link__meta-thumb">
-                                                        <img src="images/yo.jpg?h=5a3b9e47&amp;itok=KPlB-5dK" 
-                                                            alt="Michelle Jackson">
-                                                    </span> 
-                                                    <span class="grid-link__meta-author">By Michelle Jackson</span>
-                                                </div> 
-                                                <div class="grid-link__view">
-                                                    <span class="grid-link__view-title">Data-Driven Website Personas: A Cost-Effective Approach</span> 
-                                                    <span class="grid-link__view-link">Read Blog Post</span>
-                                                </div>
-                                        </a>
-                                </div>
+                                    
+                                </script>
+
+                               
+
+                                
 
                             </div>
                         </div>
